@@ -1,0 +1,7 @@
+{
+  "name": "omnistream-v4",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "OmniStream API Platform",
+  "private": true
+}

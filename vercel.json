@@ -1,0 +1,27 @@
+{
+  "version": 2,
+  "name": "omnistream-v4",
+  "regions": ["iad1"],
+  "outputDirectory": "public",
+  "functions": {
+    "api/gateway.js": {
+      "memory": 256,
+      "maxDuration": 60
+    }
+  },
+  "rewrites": [
+    { "source": "/api/health", "destination": "/api/health" },
+    { "source": "/api/telemetry", "destination": "/api/telemetry" },
+    { "source": "/api/support", "destination": "/api/support" },
+    { "source": "/((?!css|js|assets|robots\\.txt|favicon\\.ico|index\\.html).+)", "destination": "/api/gateway" },
+    { "source": "/", "destination": "/index.html" }
+  ],
+  "headers": [
+    {
+      "source": "/css/(.*)",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
+      ]
+    }
+  ]
+}
